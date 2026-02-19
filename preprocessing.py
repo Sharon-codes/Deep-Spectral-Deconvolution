@@ -34,8 +34,14 @@ class SpectralPreprocessor:
 
     def full_pipeline(self, x, y):
         """Interpolates, removes physics baseline, and normalizes."""
-        # 1. Resample to 1800 points
-        f = interp1d(x, y, kind='cubic', bounds_error=False, fill_value=0.0)
+        # 1. Handle duplicate x values (take mean of y for same x)
+        unique_x, unique_indices = np.unique(x, return_inverse=True)
+        unique_y = np.zeros_like(unique_x)
+        for i in range(len(unique_x)):
+            unique_y[i] = np.mean(y[unique_indices == i])
+            
+        # 2. Resample to 1800 points
+        f = interp1d(unique_x, unique_y, kind='cubic', bounds_error=False, fill_value=0.0)
         y_interp = f(self.target_x)
         
         # 2. Physics Baseline Removal (ArPLS)

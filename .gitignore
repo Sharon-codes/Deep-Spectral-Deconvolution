@@ -1,0 +1,16 @@
+# Data Files
+pahdb-complete-theoretical-v4.00.xml
+*.xml
+*.csv
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+env/
+
+# IDE settings
+.vscode/
+.idea/

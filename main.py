@@ -13,8 +13,8 @@ def run_pipeline():
     # CHANGE THIS to your XML filename if different
     xml_path = "pahdb-complete-theoretical-v4.00.xml" 
     
-    # We load 10 species for this training run
-    raw_spectra = parser.parse_pahdb_xml(xml_path, limit=10) 
+    # Load the complete database (set limit=None for all species)
+    raw_spectra = parser.parse_pahdb_xml(xml_path, limit=None) 
     
     if not raw_spectra:
         print("Failed to load PAHdb. Please check the file path.")

@@ -26,7 +26,7 @@ def baseline_arpls(y, lam=1e5, itermax=100):
         m = np.mean(dn) if len(dn) > 0 else 0
         s = np.std(dn) if len(dn) > 0 else 1
         # Safe soft-thresholding
-        exponent = 2 * (d - (2*s - m)) / s
+        exponent = 2 * (d - (2*s - m)) / (s + 1e-9)
         exponent = np.clip(exponent, -500, 500) # Clip to avoid overflow
         w_new = 1 / (1 + np.exp(exponent))
         if np.linalg.norm(w - w_new) < 1e-3: break

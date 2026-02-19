@@ -50,6 +50,8 @@ class UniversalParser:
                         ))
                     
                     elem.clear() # Free memory
+                    if len(spectra) % 100 == 0:
+                        print(f"Loaded {len(spectra)} species...", end='\r')
                     if limit and len(spectra) >= limit:
                         break
                         

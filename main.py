@@ -1,4 +1,5 @@
 import numpy as np
+from tqdm import tqdm
 from tensorflow.keras.callbacks import ReduceLROnPlateau, EarlyStopping
 from data_ingestion import UniversalParser
 from preprocessing import SpectralPreprocessor
@@ -23,7 +24,8 @@ def run_pipeline():
     # Preprocess real standards
     pure_standards = {}
     class_names = []
-    for idx, spec in enumerate(raw_spectra):
+    print("Preprocessing spectra...")
+    for idx, spec in enumerate(tqdm(raw_spectra)):
         _, processed_y = preprocessor.full_pipeline(spec.x, spec.y)
         pure_standards[idx] = processed_y
         class_names.append(spec.id)

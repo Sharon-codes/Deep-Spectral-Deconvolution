@@ -6,7 +6,8 @@ class DigitalTwinningGenerator:
         self.x = np.linspace(0, 1, target_len)
 
     def generate_chebyshev_baseline(self, max_order=5):
-        coeffs = np.random.randn(max_order + 1) * [1.0, 0.5, 0.2, 0.1, 0.05, 0.01][:max_order+1]
+        # Low-amplitude baseline so the PAH signals aren't buried
+        coeffs = np.random.randn(max_order + 1) * [0.1, 0.05, 0.02, 0.01, 0.005, 0.001][:max_order+1]
         return np.polynomial.chebyshev.chebval(self.x, coeffs)
 
     def add_composite_noise(self, spectrum, snr_target=50):
@@ -22,7 +23,7 @@ class DigitalTwinningGenerator:
         # Add target analytes with Log-Uniform concentrations
         for idx, (class_id, pure_spec) in enumerate(pure_spectra_dict.items()):
             if np.random.rand() > 0.5: # 50% chance of presence
-                conc = 10 ** np.random.uniform(-5, -1)
+                conc = 10 ** np.random.uniform(-1, 0.5)  # Concentrations 0.1x to ~3x (visible above noise)
                 mixture += pure_spec * conc
                 labels[idx] = 1
                 

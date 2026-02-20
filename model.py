@@ -30,5 +30,6 @@ def build_dsd_model(input_length=1800, num_classes=10):
     model = models.Model(inputs=inputs, outputs=outputs)
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3),
                   loss='binary_crossentropy',
-                  metrics=['accuracy'])
+                  metrics=[tf.keras.metrics.BinaryAccuracy(name='binary_accuracy'),
+                           tf.keras.metrics.AUC(name='auc', multi_label=True)])
     return model

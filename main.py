@@ -52,8 +52,8 @@ def run_pipeline():
     model = build_dsd_model(input_length=1800, num_classes=num_classes)
     
     callbacks = [
-        ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, verbose=1),
-        EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
+        ReduceLROnPlateau(monitor='val_auc', factor=0.5, patience=5, verbose=1, mode='max'),
+        EarlyStopping(monitor='val_auc', patience=10, restore_best_weights=True, mode='max')
     ]
     
     print("Starting Training...")
@@ -67,7 +67,7 @@ def run_pipeline():
     )
 
     # 4. SAVE MODEL WEIGHTS
-    output_name = "meteorite_stress_test.h5"
+    output_name = "meteorite_stress_test.keras"
     model.save(output_name)
     print(f"\nSUCCESS! Model saved as '{output_name}'")
 

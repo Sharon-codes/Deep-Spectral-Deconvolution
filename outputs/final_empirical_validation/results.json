@@ -1,0 +1,388 @@
+{
+  "paper_anchor": {
+    "validation_type": "empirical-background domain adaptation using real NeoSpectra/KSSL MIR soil spectra with archived experimental PAH standards",
+    "spectral_range_cm-1": [
+      600.0,
+      1800.0
+    ],
+    "analytes": [
+      "anthracene",
+      "phenanthrene",
+      "pyrene"
+    ]
+  },
+  "dataset": {
+    "background_csv": "C:\\Users\\Samsunh\\Downloads\\Neospectra_WoodwellKSSL_MIR.csv",
+    "real_background_count": 1976,
+    "train_background_count": 1581,
+    "holdout_background_count": 395,
+    "train_samples": 5000,
+    "val_samples": 1200,
+    "test_samples": 1500
+  },
+  "parameters": {
+    "gain_per_ppm": 0.002,
+    "extra_baseline_scale": 0.3,
+    "noise_floor": 0.0022,
+    "holdout_fraction": 0.2,
+    "lod_snr": 3.0,
+    "lod_grid": [
+      8,
+      10,
+      12,
+      15,
+      18,
+      20,
+      22,
+      25,
+      30,
+      40
+    ]
+  },
+  "metrics": {
+    "dsd": {
+      "macro_auc": 0.9111811391889852,
+      "macro_f1": 0.7867791179927454,
+      "thresholds": {
+        "anthracene": 0.17499999701976776,
+        "phenanthrene": 0.32499998807907104,
+        "pyrene": 0.17499999701976776
+      },
+      "per_class_auc": {
+        "anthracene": 0.9106510940477299,
+        "phenanthrene": 0.876779786862334,
+        "pyrene": 0.9461125366568915
+      }
+    },
+    "pca_svm": {
+      "macro_auc": 0.8870633667912462,
+      "macro_f1": 0.7768306497406264,
+      "thresholds": {
+        "anthracene": 0.30000001192092896,
+        "phenanthrene": 0.2750000059604645,
+        "pyrene": 0.32499998807907104
+      },
+      "per_class_auc": {
+        "anthracene": 0.8727206958351832,
+        "phenanthrene": 0.8704131362101095,
+        "pyrene": 0.9180562683284459
+      }
+    }
+  },
+  "lod": {
+    "dsd": {
+      "lod_ppm": {
+        "anthracene": 18.0,
+        "phenanthrene": 18.0,
+        "pyrene": 15.0
+      },
+      "traces": {
+        "anthracene": [
+          {
+            "ppm": 8.0,
+            "tpr": 0.7265625
+          },
+          {
+            "ppm": 10.0,
+            "tpr": 0.8515625
+          },
+          {
+            "ppm": 12.0,
+            "tpr": 0.8984375
+          },
+          {
+            "ppm": 15.0,
+            "tpr": 0.9296875
+          },
+          {
+            "ppm": 18.0,
+            "tpr": 0.9765625
+          },
+          {
+            "ppm": 20.0,
+            "tpr": 0.9765625
+          },
+          {
+            "ppm": 22.0,
+            "tpr": 0.96875
+          },
+          {
+            "ppm": 25.0,
+            "tpr": 1.0
+          },
+          {
+            "ppm": 30.0,
+            "tpr": 0.984375
+          },
+          {
+            "ppm": 40.0,
+            "tpr": 0.984375
+          }
+        ],
+        "phenanthrene": [
+          {
+            "ppm": 8.0,
+            "tpr": 0.8515625
+          },
+          {
+            "ppm": 10.0,
+            "tpr": 0.8828125
+          },
+          {
+            "ppm": 12.0,
+            "tpr": 0.9140625
+          },
+          {
+            "ppm": 15.0,
+            "tpr": 0.9296875
+          },
+          {
+            "ppm": 18.0,
+            "tpr": 0.9609375
+          },
+          {
+            "ppm": 20.0,
+            "tpr": 0.953125
+          },
+          {
+            "ppm": 22.0,
+            "tpr": 0.953125
+          },
+          {
+            "ppm": 25.0,
+            "tpr": 0.953125
+          },
+          {
+            "ppm": 30.0,
+            "tpr": 0.953125
+          },
+          {
+            "ppm": 40.0,
+            "tpr": 0.9375
+          }
+        ],
+        "pyrene": [
+          {
+            "ppm": 8.0,
+            "tpr": 0.671875
+          },
+          {
+            "ppm": 10.0,
+            "tpr": 0.8671875
+          },
+          {
+            "ppm": 12.0,
+            "tpr": 0.890625
+          },
+          {
+            "ppm": 15.0,
+            "tpr": 0.96875
+          },
+          {
+            "ppm": 18.0,
+            "tpr": 0.984375
+          },
+          {
+            "ppm": 20.0,
+            "tpr": 0.953125
+          },
+          {
+            "ppm": 22.0,
+            "tpr": 0.984375
+          },
+          {
+            "ppm": 25.0,
+            "tpr": 0.984375
+          },
+          {
+            "ppm": 30.0,
+            "tpr": 1.0
+          },
+          {
+            "ppm": 40.0,
+            "tpr": 0.984375
+          }
+        ]
+      }
+    },
+    "pca_svm": {
+      "lod_ppm": {
+        "anthracene": 40.0,
+        "phenanthrene": 25.0,
+        "pyrene": 22.0
+      },
+      "traces": {
+        "anthracene": [
+          {
+            "ppm": 8.0,
+            "tpr": 0.40625
+          },
+          {
+            "ppm": 10.0,
+            "tpr": 0.5703125
+          },
+          {
+            "ppm": 12.0,
+            "tpr": 0.703125
+          },
+          {
+            "ppm": 15.0,
+            "tpr": 0.7734375
+          },
+          {
+            "ppm": 18.0,
+            "tpr": 0.8359375
+          },
+          {
+            "ppm": 20.0,
+            "tpr": 0.84375
+          },
+          {
+            "ppm": 22.0,
+            "tpr": 0.8125
+          },
+          {
+            "ppm": 25.0,
+            "tpr": 0.8359375
+          },
+          {
+            "ppm": 30.0,
+            "tpr": 0.9375
+          },
+          {
+            "ppm": 40.0,
+            "tpr": 0.9765625
+          }
+        ],
+        "phenanthrene": [
+          {
+            "ppm": 8.0,
+            "tpr": 0.6640625
+          },
+          {
+            "ppm": 10.0,
+            "tpr": 0.6796875
+          },
+          {
+            "ppm": 12.0,
+            "tpr": 0.75
+          },
+          {
+            "ppm": 15.0,
+            "tpr": 0.890625
+          },
+          {
+            "ppm": 18.0,
+            "tpr": 0.8828125
+          },
+          {
+            "ppm": 20.0,
+            "tpr": 0.90625
+          },
+          {
+            "ppm": 22.0,
+            "tpr": 0.8828125
+          },
+          {
+            "ppm": 25.0,
+            "tpr": 0.9609375
+          },
+          {
+            "ppm": 30.0,
+            "tpr": 0.9375
+          },
+          {
+            "ppm": 40.0,
+            "tpr": 0.984375
+          }
+        ],
+        "pyrene": [
+          {
+            "ppm": 8.0,
+            "tpr": 0.6953125
+          },
+          {
+            "ppm": 10.0,
+            "tpr": 0.7734375
+          },
+          {
+            "ppm": 12.0,
+            "tpr": 0.8203125
+          },
+          {
+            "ppm": 15.0,
+            "tpr": 0.8359375
+          },
+          {
+            "ppm": 18.0,
+            "tpr": 0.90625
+          },
+          {
+            "ppm": 20.0,
+            "tpr": 0.9375
+          },
+          {
+            "ppm": 22.0,
+            "tpr": 0.9609375
+          },
+          {
+            "ppm": 25.0,
+            "tpr": 0.9375
+          },
+          {
+            "ppm": 30.0,
+            "tpr": 0.9609375
+          },
+          {
+            "ppm": 40.0,
+            "tpr": 0.96875
+          }
+        ]
+      }
+    }
+  },
+  "isomer_confusion": {
+    "labels": [
+      "anthracene",
+      "phenanthrene",
+      "unresolved"
+    ],
+    "counts": [
+      [
+        239,
+        11,
+        0
+      ],
+      [
+        11,
+        237,
+        2
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "row_normalized": [
+      [
+        0.956,
+        0.044,
+        0.0
+      ],
+      [
+        0.044,
+        0.948,
+        0.008
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ]
+  },
+  "artifacts": {
+    "model_path": "outputs\\final_empirical_validation\\empirical_dsd_model.keras"
+  }
+}

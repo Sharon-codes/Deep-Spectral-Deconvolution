@@ -10,6 +10,14 @@ __pycache__/
 # Virtual Environment
 venv/
 env/
+.venv/
+
+# Generated experiment artifacts
+outputs/*
+!outputs/final_empirical_validation/
+outputs/final_empirical_validation/*
+!outputs/final_empirical_validation/results.json
+!outputs/final_empirical_validation/empirical_dsd_model.keras
 
 # IDE settings
 .vscode/
